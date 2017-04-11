@@ -102,15 +102,29 @@ def plot(i):
 	plt.title('WARNING! BOTH TEMP AND HUMIDITY TOO HIGH: ' + "%.2f" % lasttemp + ' / ' + "%.2f" % lasthumid, color = 'r')
 	print("WARNING! BOTH TEMP AND HUMIDITY TOO HIGH: " + "%.2f" % lasttemp + ' / ' + "%.2f" % lasthumid + '  ' + str(lasttime))
 
+	myrow = str("WARNING! BOTH TEMP AND HUMIDITY TOO HIGH: ") + str(lasttime) + ',' + str(lasttemp) + ',' + str(lasthumid) + '\n'
+	fd = open('log.csv','a')
+	fd.write(myrow)
+   	fd.close()
+
 
  elif(lasttemp >= 33):
 	plt.title('WARNING! TEMPERATURE TOO HIGH: ' + "%.2f" % lasttemp, color = 'r')
 	print("WARNING! TEMPERATURE TOO HIGH: " + "%.2f" % lasttemp + '  ' + str(lasttime))
+	
+	myrow = str("WARNING! TEMPERATURE TOO HIGH: ") + str(lasttime) + ',' + str(lasttemp) + '\n'
+	fd = open('log.csv','a')
+	fd.write(myrow)
+   	fd.close()
 
  elif(lasthumid >= 25):
 	plt.title('WARNING! HUMIDITY TOO HIGH: ' + "%.2f" % lasthumid, color = 'r')
 	print("WARNING! HUMIDITY TOO HIGH: " + "%.2f" % lasthumid + '  ' + str(lasttime))
 
+	myrow = str("WARNING! HUMIDITY TOO HIGH: ") + str(lasttime) + ',' + str(lasthumid) + '\n'
+	fd = open('log.csv','a')
+	fd.write(myrow)
+   	fd.close()
  
 ani = animation.FuncAnimation(fig, plot, interval=5000)
 
@@ -141,7 +155,6 @@ plt.show()
 	plt.title('WARNING! AVERAGE PRESSURE TOO HIGH: ' + "%.2f" % avgpress, color = 'r')
 '''
  
-
 
 
 
