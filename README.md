@@ -1,6 +1,10 @@
 # RaspberryPi_Sensor
 Uses Matplotlib to Plot a live updating graph using the SHT21 sensor
+
+
 You need:
+
+
 Raspberry Pi with:
   
       Python 2.7
