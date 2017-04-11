@@ -3,27 +3,27 @@ Uses Matplotlib to Plot a live updating graph using the SHT21 sensor
 You need:
 Raspberry Pi with:
   
-  Python 2.7
+      Python 2.7
   
-  SHT-21 Sensor
+      SHT-21 Sensor
   
-  document.csv
+      document.csv
   
-  rpi_i2c.py
+      rpi_i2c.py
   
-  sht21.py
+      sht21.py
   
 Computer with:
   
-  Plot.py
+      Plot.py
   
-  RSA ssh connection to and from the Pi
+      RSA ssh connection to and from the Pi
   
-  --> as it copies the document.csv file to the pc
+     --> as it copies the document.csv file to the pc
   
-  Matplotlib
+     Matplotlib
   
-  Python 2.7
+      Python 2.7
   
 Execute as follows:
   
