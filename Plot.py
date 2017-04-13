@@ -31,6 +31,7 @@ def plot(i):
          time_string = xAndY[0]
          time_string1 = datetime.strptime(time_string, '%d/%m/%Y %H:%M:%S')
          #print(time_string1)
+	 #print (len(y))
 	 time.append(time_string1)
          y.append(float(xAndY[1]))
 	 h.append(float(xAndY[2]))
@@ -50,7 +51,7 @@ def plot(i):
  ax1.clear()
  ax1.plot(time, y, 'o', color = 'r')
  plt.yticks([16,18,20,22,24,26,28,30,32,34,36,38,40])
- ax1.set_ylabel('TEMPERATURE')
+ ax1.set_ylabel('TEMPERATURE in C')
  ax1.set_xlabel('TIME')
  ax1.yaxis.label.set_color('red')
  plt.xticks(rotation=80)
@@ -60,26 +61,26 @@ def plot(i):
  ax2.clear()
  ax2.plot(time, h, 'o', color = 'g') 
  ax2.set_yticks([0,4,8,12,16,20,24,28,32,36,40,44,48,52,56,60,64,68,72,76,80,84,88,92,96,100])
- ax2.set_ylabel('HUMIDITY')
+ ax2.set_ylabel('HUMIDITY in %')
  ax2.yaxis.label.set_color('green')
 
 
  ax3.clear()
  ax3.plot(tentime, tentemp, 'o', color = 'r')
  ax3.set_yticks([16,18,20,22,24,26,28,30,32,34,36,38,40])
- ax3.set_ylabel('TEMPERATURE')
+ ax3.set_ylabel('TEMPERATURE in C')
  ax3.yaxis.label.set_color('red')
  avgtentemp = sum(tentemp)/len(tentemp)
  avgtenhumid = sum(tenhumid)/len(tenhumid)
- ax3.set_title('Last Five Minutes: ' + "%.2f" % avgtentemp+ ' / ' + "%.2f" % avgtenhumid)
+ ax3.set_title('Last Five Minutes: ' + 'Temperature: ' + "%.2f" % avgtentemp + '  ' + 'Humidity: '  + "%.2f" % avgtenhumid)
  ax3.set_xlabel('TIME')
  ax3.grid()
 
 
  ax4.clear()
  ax4.plot(tentime, tenhumid, 'o', color = 'g')
- ax4.set_yticks([16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]) 
- ax4.set_ylabel('HUMIDITY')
+ ax4.set_yticks([16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50]) 
+ ax4.set_ylabel('HUMIDITY in %')
  ax4.yaxis.label.set_color('green')
 
 
