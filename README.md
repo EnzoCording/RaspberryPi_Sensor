@@ -1,5 +1,5 @@
 # RaspberryPi_Sensor
-Uses Matplotlib to Plot a live updating graph using the SHT21 sensor
+Uses Matplotlib and LabView to Plot a live updating graph using the SHT21 sensor
 
 
 You need:
@@ -30,9 +30,12 @@ Computer with:
       Python 2.7
   
 Execute as follows:
-  
-  On the RPi:
-    $ python sht21.py
-    
-  On the Pc:
-    $ python Plot.py
+Open Putty, load pi session and connect without a password (rsa established)
+Then:
+    $cd RPi_Htp
+    $cd BMP180
+    $cd Python
+    $python sht21.py
+
+On The Laptop, run Python with Spyder (Anaconda 3)
+Then Open irmonitor.vi in LabView and you will have the Python Programm embedded into the Labview vi
