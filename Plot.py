@@ -18,13 +18,11 @@ ax1 = fig.add_subplot(2, 1, 2)
 ax2 = ax1.twinx()
 ax3 = fig.add_subplot(2, 1, 1)
 ax4 = ax3.twinx()
-
-
+CMD = r'"pscp pi@tb-raspberry-01:/home/pi/RPi_HTP/BMP180/Python/document.csv C:\Users\cordinge\Desktop\RaspberryPi_Sensor-master"'
 
 def plot(i):
  
- CMD = r'"pscp pi@tb-raspberry-01:/home/pi/RPi_HTP/BMP180/Python/document.csv C:\Users\cordinge\Desktop\RaspberryPi_Sensor-master"'
- os.system(CMD)
+ 
  readFile = open('document.csv', 'r')
  sepFile = readFile.read().split('\n')
  readFile.close()
@@ -73,7 +71,7 @@ def plot(i):
 
  ax3.clear()
  ax3.plot(tentime, tentemp, 'o', color = 'r')
- ax3.set_yticks([16,18,20,22,24,26,28,30,32,34,36,38,40])
+ ax3.set_yticks([18,20,22,24,26,28,30,32])
  ax3.set_ylabel('TEMPERATURE in C')
  ax3.yaxis.label.set_color('red')
  avgtentemp = sum(tentemp)/len(tentemp)
@@ -89,11 +87,8 @@ def plot(i):
  ax4.set_ylabel('HUMIDITY in %')
  ax4.yaxis.label.set_color('green')
 
-
-
-
  
- ax1.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M:%S'))
+ ax1.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m' + ' - ' + '%H:%M:%S'))
 
  ax3.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M:%S'))
  #fig.autofmt_xdate(rotation=45)
@@ -136,11 +131,10 @@ def plot(i):
  fig.savefig('C:/Users/cordinge/Desktop/RaspberryPi_Sensor-master/plot.png', bbox_inches='tight', dpi=80)   
  
  
- 
  fig.tight_layout()  
+ os.system(CMD)
 
-
-ani = animation.FuncAnimation(fig, plot, interval=2000)
+ani = animation.FuncAnimation(fig, plot, interval=10000)
 #fig.set_visible(not fig.get_visible())
 plt.plot()
 
@@ -171,31 +165,3 @@ plt.plot()
  elif(avgpress >= 1016):
 	plt.title('WARNING! AVERAGE PRESSURE TOO HIGH: ' + "%.2f" % avgpress, color = 'r')
 '''
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
